@@ -28,6 +28,9 @@ runs:
     - run: flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=${{inputs.useCanvasKit}}
       shell: bash
       working-directory: ${{inputs.workingDir}}
+    - run: sed -i 's/<base href=\"\/\">/<base href=\"\/mgcm_tools\/\">/' index.html
+      shell: bash
+      working-directory: ${{inputs.workingDir}}
     - run: git config user.name github-actions
       shell: bash
       working-directory: ${{inputs.workingDir}}
