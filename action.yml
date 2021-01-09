@@ -31,6 +31,9 @@ runs:
     - run: sed -i 's/<base href=\"\/\">/<base href=\"\/mgcm_tools\/\">/' build/web/index.html
       shell: bash
       working-directory: ${{inputs.workingDir}}
+    - run: cp assets/favicon.ico build/web/favicon.ico --force
+      shell: bash
+      working-directory: ${{inputs.workingDir}}
     - run: git config user.name github-actions
       shell: bash
       working-directory: ${{inputs.workingDir}}
